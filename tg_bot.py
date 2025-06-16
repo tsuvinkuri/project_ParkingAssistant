@@ -240,7 +240,7 @@ def handle_photo(message):
             new_file.write(downloaded_file)
         result = subprocess.run([
             'python', 'yolov7/detect.py',
-            '--weights', 'yolov7/best2.pt',
+            '--weights', 'best2.pt',
             '--source', save_path,
             '--img', '640',
             '--conf', '0.25'

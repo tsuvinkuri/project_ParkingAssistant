@@ -28,7 +28,6 @@ def get_location_info(lat, lon):
         feature = data['response']['GeoObjectCollection']['featureMember'][0]
         return feature['GeoObject']['name']
     except Exception as e:
-        print(f"Ошибка геокодера: {e}")
         return None
 
 
@@ -235,7 +234,7 @@ def handle_photo(message):
         photo = message.photo[-1]
         file_info = bot.get_file(photo.file_id)
         downloaded_file = bot.download_file(file_info.file_path)
-        save_path = f"yolov7/imgs/{message.from_user.id}_{photo_number}.jpg"
+        save_path = f"yolov7/{message.from_user.id}_{photo_number}.jpg"
         with open(save_path, 'wb') as new_file:
             new_file.write(downloaded_file)
         result = subprocess.run([

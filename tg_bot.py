@@ -5,9 +5,13 @@ from telebot import types
 from urllib.parse import quote
 from signs_data import signs_info
 from signs_data_full import full_signs_info
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+bot = telebot.TeleBot(BOT_TOKEN)
 photo_number = 0
-bot = telebot.TeleBot('7712499350:AAEIV61bY981GZLfBWWrFaYNCHFPbSEWxSw')
 waiting_for_photo = False
 show_sign_information = False
 
